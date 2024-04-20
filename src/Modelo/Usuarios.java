@@ -81,7 +81,7 @@ public class Usuarios {
                 xd = "Baja";
         }
         
-        return new Object[]{dni, apellido, nombre, xd};
+        return new Object[]{dni, apellido, nombre, xd, consumo_agua, consumo_luz, consumo_gas};
     }
 
 }

@@ -1,17 +1,18 @@
 package Modelo;
 
 public class Usuarios {
+
     private int dni;
+    private String contraseña;
     private String apellido;
     private String nombre;
-    private String contraseña;
     private boolean admin;
 
-    public Usuarios(int dni, String apellido, String nombre, String contraseña, boolean admin) {
+    public Usuarios(int dni, String contraseña, String apellido, String nombre, boolean admin) {
         this.dni = dni;
+        this.contraseña = contraseña;
         this.apellido = apellido;
         this.nombre = nombre;
-        this.contraseña = contraseña;
         this.admin = admin;
     }
 
@@ -34,7 +35,5 @@ public class Usuarios {
     public boolean isAdmin() {
         return admin;
     }
-    
-    
-    
+
 }

@@ -10,11 +10,12 @@ public class Usuarios {
     private double consumo_agua, consumo_luz, consumo_gas;
     private boolean admin;
 
-    public Usuarios(int dni, String contraseña, String apellido, String nombre, boolean admin) {
+    public Usuarios(int dni, String contraseña, String apellido, String nombre, int estrato, boolean admin) {
         this.dni = dni;
         this.contraseña = contraseña;
         this.apellido = apellido;
         this.nombre = nombre;
+        this.estrato = estrato;
         this.admin = admin;
     }
 
@@ -59,6 +60,7 @@ public class Usuarios {
     public double getCosto_agua(){
         return consumo_agua * (1+getDescuento());
     }
+    
     public double getCosto_luz(){
         return consumo_luz * (1+getDescuento());
     }

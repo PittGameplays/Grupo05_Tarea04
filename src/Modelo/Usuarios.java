@@ -38,8 +38,8 @@ public class Usuarios {
     public boolean isAdmin() {
         return admin;
     }
-    
-    public double getDescuento(){
+
+    public double getDescuento() {
         double a;
         switch (estrato) {
             case 5:
@@ -56,17 +56,32 @@ public class Usuarios {
         }
         return a;
     }
-    
-    public double getCosto_agua(){
-        return consumo_agua * (1+getDescuento());
+
+    public double getCosto_agua() {
+        return consumo_agua * (1 + getDescuento());
     }
-    
-    public double getCosto_luz(){
-        return consumo_luz * (1+getDescuento());
+
+    public double getCosto_luz() {
+        return consumo_luz * (1 + getDescuento());
     }
-    
-    public double getCosto_gas(){
-        return consumo_gas * (1+getDescuento());
+
+    public double getCosto_gas() {
+        return consumo_gas * (1 + getDescuento());
+    }
+
+    public Object[] getInfo() {
+        String xd;
+        switch (estrato) {
+            case 6: xd = "Alta-Alta"; break;
+            case 5: xd = "Alta"; break;    
+            case 4: xd = "Media-Alta"; break;    
+            case 3: xd = "Media"; break;
+            case 2: xd = "Media-Baja"; break;
+            default:
+                xd = "Baja";
+        }
+        
+        return new Object[]{dni, apellido, nombre, xd};
     }
 
 }

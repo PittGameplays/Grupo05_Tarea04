@@ -19,6 +19,6 @@ public class Arreglo_Usuarios {
     }
     
     public void listar(JTable table){
-        Object[] cabecera = {"DNI", "Apellidos", "Nombres", "Estrato Social", ""};
+        Object[] cabecera = {"DNI", "Apellidos", "Nombres", "Estrato Social", "Consumo de Agua", "Consumo de Luz", "Consumo de Gas"};
     }
 }

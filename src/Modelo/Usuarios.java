@@ -59,5 +59,12 @@ public class Usuarios {
     public double getCosto_agua(){
         return consumo_agua * (1+getDescuento());
     }
+    public double getCosto_luz(){
+        return consumo_luz * (1+getDescuento());
+    }
+    
+    public double getCosto_gas(){
+        return consumo_gas * (1+getDescuento());
+    }
 
 }

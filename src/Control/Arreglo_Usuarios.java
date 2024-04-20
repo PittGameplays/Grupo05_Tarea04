@@ -2,6 +2,8 @@ package Control;
 
 import Modelo.Usuarios;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -30,4 +32,15 @@ public class Arreglo_Usuarios {
             modtable.addRow(arreglo.get(i).getInfo());
         }
     }
+    
+    public void listar(JList list){
+        DefaultListModel modlist = new DefaultListModel();
+        list.setModel(modlist);
+        
+        for (int i = 0; i < arreglo.size(); i++) {
+            modlist.addElement(arreglo.get(i).getDni());
+        }
+    }
+    
+    
 }

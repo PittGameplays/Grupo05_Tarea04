@@ -1,13 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Control;
 
-/**
- *
- * @author pedro
- */
+import Modelo.Usuarios;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+
 public class Arreglo_Usuarios {
+    ArrayList<Usuarios> arreglo = new ArrayList<>();
+    boolean starting;
     
+    
+    public void agregar(Usuarios dato){
+        arreglo.add(dato);
+        if(starting){
+            JOptionPane.showMessageDialog(null, "Registro Exitoso");
+        }
+        
+    }
+    
+    public void listar(JTable table){
+        Object[] cabecera = {"DNI", "Apellidos", "Nombres", "Estrato Social", ""};
+    }
 }

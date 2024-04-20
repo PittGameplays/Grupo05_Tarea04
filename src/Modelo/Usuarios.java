@@ -6,6 +6,8 @@ public class Usuarios {
     private String contraseña;
     private String apellido;
     private String nombre;
+    private int estrato;
+    private double consumo_agua, consumo_luz, consumo_gas;
     private boolean admin;
 
     public Usuarios(int dni, String contraseña, String apellido, String nombre, boolean admin) {
@@ -34,6 +36,28 @@ public class Usuarios {
 
     public boolean isAdmin() {
         return admin;
+    }
+    
+    public double getDescuento(){
+        double a;
+        switch (estrato) {
+            case 5:
+            case 6:
+                a = .25;
+                break;
+            case 4:
+            case 3:
+                a = -.10;
+                break;
+            default:
+                a = -.50;
+                break;
+        }
+        return a;
+    }
+    
+    public double getCosto_agua(){
+        return consumo_agua * (1+getDescuento());
     }
 
 }

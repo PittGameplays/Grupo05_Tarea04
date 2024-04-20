@@ -46,6 +46,8 @@ public class JFrame_Principal extends javax.swing.JFrame {
         jLabel3.setText("Ingrese su nro. de DNI:");
 
         txt_dni.setBackground(new java.awt.Color(153, 255, 255));
+        txt_dni.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txt_dni.setForeground(new java.awt.Color(51, 51, 51));
         txt_dni.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel4.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -54,6 +56,8 @@ public class JFrame_Principal extends javax.swing.JFrame {
         jLabel4.setText("Ingrese su contraseña:");
 
         txt_contraseña.setBackground(new java.awt.Color(153, 255, 255));
+        txt_contraseña.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txt_contraseña.setForeground(new java.awt.Color(51, 51, 51));
         txt_contraseña.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jButton1.setBackground(new java.awt.Color(102, 153, 255));

@@ -1,6 +1,10 @@
 package Acceso;
 
 public class Salvador {
-    private int tumamabicho;
+    private boolean tumamabicho;
     private int loncansepasasoloxd;
+    
+    public void nmmsxd(){
+        tumamabicho = true;
+    }
 }

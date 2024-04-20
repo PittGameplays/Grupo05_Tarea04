@@ -80,7 +80,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jButton1" max="32767" attributes="0"/>
                           <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="txt_dni2" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
+                          <Component id="txt_apellidos" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -89,13 +89,13 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_dni3" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
+                                  <Component id="txt_nombre" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_dni1" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
+                                  <Component id="txt_contraseña" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -103,7 +103,7 @@
                                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="jComboBox1" max="32767" attributes="0"/>
+                                  <Component id="cbo_estrato" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -125,15 +125,15 @@
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txt_dni3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txt_nombre" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="txt_dni1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txt_contraseña" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cbo_estrato" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
@@ -144,7 +144,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txt_dni2" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_apellidos" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="15" max="32767" attributes="0"/>
@@ -188,7 +188,7 @@
                 <Property name="text" type="java.lang.String" value="Cree una contrase&#xf1;a:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txt_dni1">
+            <Component class="javax.swing.JTextField" name="txt_contrase&#xf1;a">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="cc" red="99" type="rgb"/>
@@ -201,7 +201,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txt_dni2">
+            <Component class="javax.swing.JTextField" name="txt_apellidos">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="cc" red="99" type="rgb"/>
@@ -225,7 +225,7 @@
                 <Property name="text" type="java.lang.String" value="Ingrese sus apellidos:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txt_dni3">
+            <Component class="javax.swing.JTextField" name="txt_nombre">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="cc" red="99" type="rgb"/>
@@ -260,7 +260,7 @@
                 <Property name="text" type="java.lang.String" value="Seleccione su clase social:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox1">
+            <Component class="javax.swing.JComboBox" name="cbo_estrato">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="cc" red="99" type="rgb"/>

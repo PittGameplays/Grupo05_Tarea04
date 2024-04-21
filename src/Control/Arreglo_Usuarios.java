@@ -1,7 +1,6 @@
 package Control;
 
 import Modelo.Usuarios;
-import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -9,38 +8,70 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class Arreglo_Usuarios {
-    ArrayList<Usuarios> arreglo = new ArrayList<>();
+
+    private Usuarios[] arreglo = new Usuarios[100];
+    private int i = 0;
     boolean starting;
-    
-    
-    public void agregar(Usuarios dato){
-        arreglo.add(dato);
-        if(starting){
+
+    public void agregar(Usuarios dato) {
+        arreglo[i] = dato;
+        i++;
+        if (starting) {
             JOptionPane.showMessageDialog(null, "Registro Exitoso");
         }
-        
+
     }
-    
-    public void listar(JTable table){
+
+    public void listar(JTable table) {
         Object[] cabecera = {"DNI", "Apellidos", "Nombres", "Estrato Social", "Consumo de Agua",
             "Consumo de Luz", "Consumo de Gas"};
-            
+
         DefaultTableModel modtable = new DefaultTableModel(cabecera, 0);
         table.setModel(modtable);
-        
-        for (int i = 0; i < arreglo.size(); i++) {
-            modtable.addRow(arreglo.get(i).getInfo());
+
+        for (int j = 0; j < i; j++) {
+            modtable.addRow(arreglo[j].getInfo());
         }
     }
-    
-    public void listar(JList list){
+
+    public void listar(JList list) {
         DefaultListModel modlist = new DefaultListModel();
         list.setModel(modlist);
-        
-        for (int i = 0; i < arreglo.size(); i++) {
-            modlist.addElement(arreglo.get(i).getDni());
+
+        for (int j = 0; j < i; j++) {
+            modlist.addElement(arreglo[j].getDni());
         }
     }
+
+    public void quicksort(){
+        quicksort2(0, arreglo.length-1);
+    }
     
-    
+    public void quicksort2(int izq, int der) {
+        int izquierda = izq, derecha = der;
+        if (izq >= der) {
+            return;
+        }
+        
+        if (izq != der) {
+            int pivote = izq;
+            Usuarios aux;
+            while(izq!= der){
+                while(arreglo[der].getDni() >= arreglo[pivote].getDni() && izq < der){der--;}
+                while(arreglo[izq].getDni() < arreglo[pivote].getDni() && izq < der){izq++;}
+                
+                if (der != izq){
+                    aux = arreglo[der];
+                    arreglo[der] = arreglo[izq];
+                    arreglo[izq] = aux;
+                }
+            }
+            
+            if(izq == der){
+                quicksort2(izquierda, izq-1);
+                quicksort2(izq+1, derecha);
+            }
+        }
+
+    }
 }

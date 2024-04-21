@@ -22,6 +22,21 @@ public class Usuarios {
         this.admin = admin;
     }
 
+    public Usuarios(int dni, String contraseña, String apellido, String nombre, int estrato, double consumo_agua,
+            double consumo_luz, double consumo_gas, boolean admin) {
+        this.dni = dni;
+        this.contraseña = contraseña;
+        this.apellido = apellido;
+        this.nombre = nombre;
+        this.estrato = estrato;
+        this.consumo_agua = consumo_agua;
+        this.consumo_luz = consumo_luz;
+        this.consumo_gas = consumo_gas;
+        this.admin = admin;
+    }
+    
+    
+
     public int getDni() {
         return dni;
     }
@@ -41,6 +56,32 @@ public class Usuarios {
     public boolean isAdmin() {
         return admin;
     }
+
+    public double getConsumo_agua() {
+        return consumo_agua;
+    }
+
+    public double getConsumo_luz() {
+        return consumo_luz;
+    }
+
+    public double getConsumo_gas() {
+        return consumo_gas;
+    }
+
+    public void setConsumo_agua(double consumo_agua) {
+        this.consumo_agua = consumo_agua;
+    }
+
+    public void setConsumo_luz(double consumo_luz) {
+        this.consumo_luz = consumo_luz;
+    }
+
+    public void setConsumo_gas(double consumo_gas) {
+        this.consumo_gas = consumo_gas;
+    }
+    
+    
 
     public double getDescuento() {
         double a;
@@ -92,11 +133,12 @@ public class Usuarios {
     }
     
     public String getSalvado(){
-        return dni + "%" + contraseña + "%" + apellido + "%" + nombre + "%" + estrato + "%" + admin;
+        return dni + "%" + contraseña + "%" + apellido + "%" + nombre + "%" + estrato + "%" + consumo_agua + "%" + 
+                consumo_luz + "%" + consumo_gas + "%" + admin;
     }
     
     public void Listar(JTable table){
-        String[] cabecera = {"Consumo Agua", "Precio Agua", "Consumo Luz", "Precio Luz", "Consumo Gas", "Precio Gas"};
+        String[] cabecera = {"Cons. Agua", "Prec. Agua", "Cons. Luz", "Prec. Luz", "Cons. Gas", "Prec. Gas"};
         DefaultTableModel modtable = new DefaultTableModel(cabecera, 0);
         modtable.addRow(new Object[]{consumo_agua + "m3", "S/" + getCosto_agua(), consumo_luz + "kw", "S/" + getCosto_luz(), 
         consumo_gas + "m3", "S/" +getCosto_gas()});

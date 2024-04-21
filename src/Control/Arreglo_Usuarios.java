@@ -1,6 +1,7 @@
 package Control;
 
 import Modelo.Usuarios;
+import java.awt.Color;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -23,9 +24,9 @@ public class Arreglo_Usuarios {
 
     public void agregar(Usuarios dato) {
         if (i <= 100) {
-            if(buscar(dato.getDni())){
+            if (buscar(dato.getDni())) {
                 JOptionPane.showMessageDialog(null, "El usuario ya existe");
-            } else{
+            } else {
                 arreglo[i] = dato;
                 i++;
                 if (!starting) {
@@ -47,14 +48,18 @@ public class Arreglo_Usuarios {
     }
 
     public void listar(JTable table) {
-        Object[] cabecera = {"DNI", "Apellidos", "Nombres", "Estrato Social", "Consumo de Agua",
-            "Consumo de Luz", "Consumo de Gas"};
+        Object[] cabecera = {"DNI", "Apellidos", "Nombres", "Estrato Social", "Cons. Agua",
+            "Cons. Luz", "Cons. Gas"};
 
         DefaultTableModel modtable = new DefaultTableModel(cabecera, 0);
+        
         table.setModel(modtable);
 
         for (int j = 0; j < i; j++) {
-            modtable.addRow(arreglo[j].getInfo());
+            if (!arreglo[j].isAdmin()) {
+                modtable.addRow(arreglo[j].getInfo());
+            }
+
         }
     }
 
@@ -63,7 +68,9 @@ public class Arreglo_Usuarios {
         list.setModel(modlist);
 
         for (int j = 0; j < i; j++) {
-            modlist.addElement(arreglo[j].getDni());
+            if (!arreglo[j].isAdmin()) {
+                modlist.addElement(arreglo[j].getDni() + "");
+            }
         }
     }
 
@@ -86,13 +93,32 @@ public class Arreglo_Usuarios {
         }
         return null;
     }
-    public boolean buscar(int dni){
+
+    public boolean buscar(int dni) {
         for (int j = 0; j < i; j++) {
-            if(arreglo[j].getDni() == dni){
+            if (arreglo[j].getDni() == dni) {
                 return true;
             }
         }
         return false;
+    }
+    
+    public Usuarios buscar_1(int dni) {
+        for (int j = 0; j < i; j++) {
+            if (arreglo[j].getDni() == dni) {
+                return arreglo[j];
+            }
+        }
+        return null;
+    }
+    
+    public int buscar_2(int dni) {
+        for (int j = 0; j < i; j++) {
+            if (arreglo[j].getDni() == dni) {
+                return j;
+            }
+        }
+        return -1;
     }
 
     public void quicksort() {

@@ -22,20 +22,23 @@ public class Salvador {
     
     public static void cargar(){
         try {
+            System.out.println("cargar");
             FileReader fr = new FileReader(ruta_archivo);
             BufferedReader br = new BufferedReader(fr);
             String linea;
 
             while ((linea = br.readLine()) != null) {
                 StringTokenizer tokenizer = new StringTokenizer(linea, "%");
-                Object[] datos = new Object[6];
+                Object[] datos = new Object[9];
                 int i = 0;
                 while (tokenizer.hasMoreTokens()) {
                     datos[i] = tokenizer.nextToken();
                     i++;
                 }
                 temp = new Usuarios(Integer.parseInt(datos[0] + ""), datos[1] + "", datos[2] + "", datos[3] + "",
-                        Integer.parseInt(datos[4] + ""), Boolean.parseBoolean(datos[5] + ""));
+                        Integer.parseInt(datos[4] + ""), Double.parseDouble(datos[5] + ""),
+                        Double.parseDouble(datos[6] + ""), Double.parseDouble(datos[7] + ""),
+                        Boolean.parseBoolean(datos[8] + ""));
                 arreglo.agregar(temp);
             }
             
@@ -53,6 +56,7 @@ public class Salvador {
     
     public static void guardar() {
         try {
+            System.out.println("guardar");
             FileWriter fw = new FileWriter(ruta_archivo);
             PrintWriter pw = new PrintWriter(fw);
 

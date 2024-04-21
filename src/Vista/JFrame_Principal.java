@@ -5,8 +5,7 @@ import Control.Arreglo_Usuarios;
 import javax.swing.JOptionPane;
 
 public class JFrame_Principal extends javax.swing.JFrame {
-
-    Salvador sv = new Salvador();
+    
     Arreglo_Usuarios arreglo = new Arreglo_Usuarios();
 
     public JFrame_Principal() {
@@ -171,8 +170,8 @@ public class JFrame_Principal extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         if (arreglo.isStarting()) {
-            sv.set_arreglo(arreglo);
-            sv.cargar();
+            Salvador.set_arreglo(arreglo);
+            Salvador.cargar();
             arreglo.quicksort();
             arreglo.setStarting(false);
         }
@@ -192,7 +191,10 @@ public class JFrame_Principal extends javax.swing.JFrame {
 
             if (arreglo.validar(dni, contraseña)) {
                 if (arreglo.buscar(dni, contraseña).isAdmin()) {
-
+                    JFrame_Admin jf = new JFrame_Admin();
+                    jf.setArreglo(arreglo);
+                    jf.setVisible(true);
+                    this.dispose();
                 } else {
                     JFrame_Usuario jf = new JFrame_Usuario();
                     jf.setArreglo(arreglo);
@@ -208,7 +210,7 @@ public class JFrame_Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_iniciarsesionActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        sv.guardar();
+        Salvador.guardar();
     }//GEN-LAST:event_formWindowClosing
 
     /**

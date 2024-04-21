@@ -1,22 +1,24 @@
 package Vista;
 
+import Acceso.Salvador;
 import Control.Arreglo_Usuarios;
 import Modelo.Usuarios;
+import javax.swing.JOptionPane;
 
 public class JFrame_Usuario extends javax.swing.JFrame {
 
     Arreglo_Usuarios arreglo;
     Usuarios temp;
-    
+
     public JFrame_Usuario() {
         initComponents();
         setLocationRelativeTo(null);
     }
 
-    public void setArreglo(Arreglo_Usuarios dato){
+    public void setArreglo(Arreglo_Usuarios dato) {
         arreglo = dato;
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -37,7 +39,17 @@ public class JFrame_Usuario extends javax.swing.JFrame {
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+            }
+        });
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
@@ -181,24 +193,57 @@ public class JFrame_Usuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_cerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cerrarActionPerformed
-        JFrame_Principal jf = new JFrame_Principal();
-        jf.setArreglo(arreglo);
-        jf.setVisible(true);
-        this.dispose();
+        int xd = JOptionPane.showConfirmDialog(null, "¿Seguro que desea cerrar su sesion?",
+                "Confirmacion", JOptionPane.YES_NO_OPTION);
+
+        if (xd == JOptionPane.YES_OPTION) {
+            JFrame_Principal jf = new JFrame_Principal();
+            jf.setArreglo(arreglo);
+            jf.setVisible(true);
+            this.dispose();
+        }
+
     }//GEN-LAST:event_btn_cerrarActionPerformed
 
     private void btn_pagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pagarActionPerformed
-        
+        int index = cbo_servicio.getSelectedIndex();
+        if (index != -1) {
+            switch (index) {
+                case 0:
+                    temp.setConsumo_agua(0);
+                    break;
+                case 1:
+                    temp.setConsumo_luz(0);
+                    break;
+                case 2:
+                    temp.setConsumo_gas(0);
+                    break;
+                case 3:
+                    temp.setConsumo_agua(0);
+                    temp.setConsumo_luz(0);
+                    temp.setConsumo_gas(0);
+                    break;
+            }
+            JOptionPane.showMessageDialog(null, "Pago Exitoso");
+        }
     }//GEN-LAST:event_btn_pagarActionPerformed
 
     private void cbo_servicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbo_servicioActionPerformed
         int index = cbo_servicio.getSelectedIndex();
-        if(index != -1){
+        if (index != -1) {
             switch (index) {
-                case 0: txt_monto.setText(temp.getCosto_agua() + ""); break;
-                case 1: txt_monto.setText(temp.getCosto_luz() + ""); break;
-                case 2: txt_monto.setText(temp.getCosto_gas() + ""); break;
-                case 3: txt_monto.setText(temp.getCosto_total() + ""); break;
+                case 0:
+                    txt_monto.setText(temp.getCosto_agua() + "");
+                    break;
+                case 1:
+                    txt_monto.setText(temp.getCosto_luz() + "");
+                    break;
+                case 2:
+                    txt_monto.setText(temp.getCosto_gas() + "");
+                    break;
+                case 3:
+                    txt_monto.setText(temp.getCosto_total() + "");
+                    break;
             }
         }
     }//GEN-LAST:event_cbo_servicioActionPerformed
@@ -206,6 +251,17 @@ public class JFrame_Usuario extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         temp.Listar(tbl_consumo);
     }//GEN-LAST:event_formWindowOpened
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        Salvador.set_arreglo(arreglo);
+        Salvador.guardar();
+    }//GEN-LAST:event_formWindowClosed
+
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        temp.Listar(tbl_consumo);
+        cbo_servicio.setSelectedIndex(-1);
+        txt_monto.setText("");
+    }//GEN-LAST:event_formWindowGainedFocus
 
     /**
      * @param args the command line arguments

@@ -1,7 +1,2 @@
-12%tr%no%er%2%false
-122%er%no%si%6%false
-1878124%1234567890%Montenegro%Luis%0%false
-3154354%rfeg2tegqra<yasjk%hwtgrfewshetyrdrn%wwawedsadvf%1%false
-31253641%gvbwrve%gwtbrger%nbywgrvfeaw%1%false
-124635231%qgwbfgdsf%q3nhbwgrtea%qanyhbwgrfae%0%false
-1234567890%0987654321%Vargas%Maycohol%6%false
+72711592%1234567890%Ruiz%Pedro%2%0.0%0.0%0.0%false
+1234567890%0987654321%admin%admin%6%0.0%0.0%0.0%true

@@ -11,7 +11,6 @@ import java.util.StringTokenizer;
 import javax.swing.JOptionPane;
 
 public class Salvador {
-    int mmgvo;
     static Arreglo_Usuarios arreglo;
     static String ruta_archivo = "datos.txt";
     static Usuarios temp;

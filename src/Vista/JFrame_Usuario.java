@@ -96,7 +96,7 @@ public class JFrame_Usuario extends javax.swing.JFrame {
         btn_cerrar.setBackground(new java.awt.Color(153, 204, 255));
         btn_cerrar.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         btn_cerrar.setForeground(new java.awt.Color(0, 0, 0));
-        btn_cerrar.setText("Cerrar Ventana");
+        btn_cerrar.setText("Cerrar Sesión");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

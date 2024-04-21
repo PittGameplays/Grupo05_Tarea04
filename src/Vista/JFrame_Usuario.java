@@ -37,6 +37,11 @@ public class JFrame_Usuario extends javax.swing.JFrame {
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -52,6 +57,11 @@ public class JFrame_Usuario extends javax.swing.JFrame {
         cbo_servicio.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         cbo_servicio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Agua", "Luz", "Gas Natural", "Todos" }));
         cbo_servicio.setSelectedIndex(-1);
+        cbo_servicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbo_servicioActionPerformed(evt);
+            }
+        });
 
         tbl_consumo.setBackground(new java.awt.Color(153, 204, 255));
         tbl_consumo.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
@@ -111,9 +121,7 @@ public class JFrame_Usuario extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(63, 63, 63)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)))
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -124,11 +132,16 @@ public class JFrame_Usuario extends javax.swing.JFrame {
                             .addComponent(cbo_servicio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txt_monto))))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btn_pagar, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_cerrar, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btn_pagar, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_cerrar, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,6 +190,22 @@ public class JFrame_Usuario extends javax.swing.JFrame {
     private void btn_pagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pagarActionPerformed
         
     }//GEN-LAST:event_btn_pagarActionPerformed
+
+    private void cbo_servicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbo_servicioActionPerformed
+        int index = cbo_servicio.getSelectedIndex();
+        if(index != -1){
+            switch (index) {
+                case 0: txt_monto.setText(temp.getCosto_agua() + ""); break;
+                case 1: txt_monto.setText(temp.getCosto_luz() + ""); break;
+                case 2: txt_monto.setText(temp.getCosto_gas() + ""); break;
+                case 3: txt_monto.setText(temp.getCosto_total() + ""); break;
+            }
+        }
+    }//GEN-LAST:event_cbo_servicioActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        temp.Listar(tbl_consumo);
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

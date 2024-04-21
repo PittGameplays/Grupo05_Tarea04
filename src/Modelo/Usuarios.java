@@ -1,5 +1,8 @@
 package Modelo;
 
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 public class Usuarios {
 
     private int dni;
@@ -68,6 +71,10 @@ public class Usuarios {
     public double getCosto_gas() {
         return (consumo_gas * 5234 *(1 + getDescuento())) * 1.01;
     }
+    
+    public double getCosto_total(){
+        return getCosto_agua() + getCosto_gas() + getCosto_luz();
+    }
 
     public Object[] getInfo() {
         String xd;
@@ -86,5 +93,14 @@ public class Usuarios {
     
     public String getSalvado(){
         return dni + "%" + contraseña + "%" + apellido + "%" + nombre + "%" + estrato + "%" + admin;
+    }
+    
+    public void Listar(JTable table){
+        String[] cabecera = {"Consumo Agua", "Precio Agua", "Consumo Luz", "Precio Luz", "Consumo Gas", "Precio Gas"};
+        DefaultTableModel modtable = new DefaultTableModel(cabecera, 0);
+        modtable.addRow(new Object[]{consumo_agua + "m3", "S/" + getCosto_agua(), consumo_luz + "kw", "S/" + getCosto_luz(), 
+        consumo_gas + "m3", "S/" +getCosto_gas()});
+        table.setModel(modtable);
+        
     }
 }

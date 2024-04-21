@@ -14,10 +14,17 @@ public class Arreglo_Usuarios {
     boolean starting;
 
     public void agregar(Usuarios dato) {
-        arreglo[i] = dato;
-        i++;
-        if (starting) {
-            JOptionPane.showMessageDialog(null, "Registro Exitoso");
+        if (i <= 100) {
+            arreglo[i] = dato;
+            i++;
+            if (starting) {
+                JOptionPane.showMessageDialog(null, "Registro Exitoso");
+            } else {
+                quicksort();
+            }
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "Cantidad de usuarios excedida, proceso fallido");
         }
 
     }
@@ -49,6 +56,19 @@ public class Arreglo_Usuarios {
         for (int j = 0; j < i; j++) {
             modlist.addElement(arreglo[j].getDni());
         }
+    }
+
+    public boolean validar(int dni, String contraseña) {
+        return buscar(dni, contraseña) != null;
+    }
+
+    public Usuarios buscar(int dni, String contraseña) {
+        for (int j = 0; j < i; j++) {
+            if (arreglo[j].getDni() == dni && arreglo[j].getContraseña().equals(contraseña)) {
+                return getUsuario(j);
+            }
+        }
+        return null;
     }
 
     public void quicksort() {
@@ -86,4 +106,5 @@ public class Arreglo_Usuarios {
         }
 
     }
+
 }

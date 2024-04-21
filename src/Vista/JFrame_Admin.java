@@ -41,8 +41,8 @@ public class JFrame_Admin extends javax.swing.JFrame {
         txt_consumoLuz = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txt_consumoGas = new javax.swing.JTextField();
-        btn_pagar = new javax.swing.JButton();
-        btn_pagar1 = new javax.swing.JButton();
+        btn_modificar = new javax.swing.JButton();
+        btn_cerrar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -106,23 +106,23 @@ public class JFrame_Admin extends javax.swing.JFrame {
         txt_consumoGas.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         txt_consumoGas.setForeground(new java.awt.Color(255, 255, 255));
 
-        btn_pagar.setBackground(new java.awt.Color(153, 204, 255));
-        btn_pagar.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        btn_pagar.setForeground(new java.awt.Color(0, 0, 0));
-        btn_pagar.setText("Modificar");
-        btn_pagar.addActionListener(new java.awt.event.ActionListener() {
+        btn_modificar.setBackground(new java.awt.Color(153, 204, 255));
+        btn_modificar.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        btn_modificar.setForeground(new java.awt.Color(0, 0, 0));
+        btn_modificar.setText("Modificar");
+        btn_modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_pagarActionPerformed(evt);
+                btn_modificarActionPerformed(evt);
             }
         });
 
-        btn_pagar1.setBackground(new java.awt.Color(153, 204, 255));
-        btn_pagar1.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        btn_pagar1.setForeground(new java.awt.Color(0, 0, 0));
-        btn_pagar1.setText("Cerrar Sesion");
-        btn_pagar1.addActionListener(new java.awt.event.ActionListener() {
+        btn_cerrar.setBackground(new java.awt.Color(153, 204, 255));
+        btn_cerrar.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        btn_cerrar.setForeground(new java.awt.Color(0, 0, 0));
+        btn_cerrar.setText("Cerrar Sesion");
+        btn_cerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_pagar1ActionPerformed(evt);
+                btn_cerrarActionPerformed(evt);
             }
         });
 
@@ -147,9 +147,9 @@ public class JFrame_Admin extends javax.swing.JFrame {
                             .addComponent(txt_consumoLuz)
                             .addComponent(txt_consumoGas)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(btn_pagar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(btn_pagar1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btn_cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txt_apellido))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(24, 24, 24))
@@ -181,8 +181,8 @@ public class JFrame_Admin extends javax.swing.JFrame {
                         .addComponent(txt_consumoGas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_pagar)
-                            .addComponent(btn_pagar1)))
+                            .addComponent(btn_modificar)
+                            .addComponent(btn_cerrar)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane2)))
@@ -242,13 +242,13 @@ public class JFrame_Admin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_pagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pagarActionPerformed
+    private void btn_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarActionPerformed
 
-    }//GEN-LAST:event_btn_pagarActionPerformed
+    }//GEN-LAST:event_btn_modificarActionPerformed
 
-    private void btn_pagar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pagar1ActionPerformed
+    private void btn_cerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cerrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_pagar1ActionPerformed
+    }//GEN-LAST:event_btn_cerrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -287,8 +287,8 @@ public class JFrame_Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_pagar;
-    private javax.swing.JButton btn_pagar1;
+    private javax.swing.JButton btn_cerrar;
+    private javax.swing.JButton btn_modificar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

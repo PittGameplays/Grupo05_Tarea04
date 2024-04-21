@@ -87,9 +87,9 @@
                                       <Component id="txt_consumoLuz" alignment="0" max="32767" attributes="0"/>
                                       <Component id="txt_consumoGas" alignment="0" max="32767" attributes="0"/>
                                       <Group type="102" alignment="1" attributes="0">
-                                          <Component id="btn_pagar" min="-2" pref="110" max="-2" attributes="0"/>
+                                          <Component id="btn_modificar" min="-2" pref="110" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="btn_pagar1" min="-2" pref="110" max="-2" attributes="0"/>
+                                          <Component id="btn_cerrar" min="-2" pref="110" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="txt_apellido" alignment="0" max="32767" attributes="0"/>
                                   </Group>
@@ -127,8 +127,8 @@
                                   <Component id="txt_consumoGas" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace pref="10" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="btn_pagar" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btn_pagar1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btn_modificar" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btn_cerrar" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" attributes="0">
@@ -298,7 +298,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btn_pagar">
+                <Component class="javax.swing.JButton" name="btn_modificar">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="cc" red="99" type="rgb"/>
@@ -312,10 +312,10 @@
                     <Property name="text" type="java.lang.String" value="Modificar"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_pagarActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_modificarActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btn_pagar1">
+                <Component class="javax.swing.JButton" name="btn_cerrar">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="cc" red="99" type="rgb"/>
@@ -329,7 +329,7 @@
                     <Property name="text" type="java.lang.String" value="Cerrar Sesion"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_pagar1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_cerrarActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>

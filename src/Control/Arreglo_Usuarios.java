@@ -23,12 +23,15 @@ public class Arreglo_Usuarios {
 
     public void agregar(Usuarios dato) {
         if (i <= 100) {
-            arreglo[i] = dato;
-            i++;
-            if (!starting) {
-                JOptionPane.showMessageDialog(null, "Registro Exitoso");
+            if(buscar(dato.getDni())){
+                JOptionPane.showMessageDialog(null, "El usuario ya existe");
+            } else{
+                arreglo[i] = dato;
+                i++;
+                if (!starting) {
+                    JOptionPane.showMessageDialog(null, "Registro Exitoso");
+                }
             }
-
         } else {
             JOptionPane.showMessageDialog(null, "Cantidad de usuarios excedida, proceso fallido");
         }
@@ -82,6 +85,14 @@ public class Arreglo_Usuarios {
             }
         }
         return null;
+    }
+    public boolean buscar(int dni){
+        for (int j = 0; j < i; j++) {
+            if(arreglo[j].getDni() == dni){
+                return true;
+            }
+        }
+        return false;
     }
 
     public void quicksort() {

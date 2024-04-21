@@ -34,7 +34,7 @@ public class JDialog_Registro extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         cbo_estrato = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        btn_registrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -87,13 +87,13 @@ public class JDialog_Registro extends javax.swing.JDialog {
         cbo_estrato.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Clase Baja", "Clase Media-Baja", "Clase Media", "Clase Media-Alta", "Clase Alta", "Clase Alta-Alta" }));
         cbo_estrato.setSelectedIndex(-1);
 
-        jButton1.setBackground(new java.awt.Color(102, 102, 255));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Registrar Usuario");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_registrar.setBackground(new java.awt.Color(102, 102, 255));
+        btn_registrar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btn_registrar.setForeground(new java.awt.Color(255, 255, 255));
+        btn_registrar.setText("Registrar Usuario");
+        btn_registrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_registrarActionPerformed(evt);
             }
         });
 
@@ -104,7 +104,7 @@ public class JDialog_Registro extends javax.swing.JDialog {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_registrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel3)
                     .addComponent(txt_apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -150,12 +150,11 @@ public class JDialog_Registro extends javax.swing.JDialog {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(32, 32, 32)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(btn_registrar)
                 .addGap(0, 15, Short.MAX_VALUE))
         );
 
@@ -175,7 +174,7 @@ public class JDialog_Registro extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrarActionPerformed
         try {
             int dni = Integer.parseInt(txt_dni.getText());
             String contraseña = txt_contraseña.getText();
@@ -186,6 +185,7 @@ public class JDialog_Registro extends javax.swing.JDialog {
             if (cbo_estrato.getSelectedIndex() != -1) {
                 arreglo.agregar(new Usuarios(dni, contraseña, apellidos, nombres, estrato,
                         false));
+                this.dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Rellene los datos correctamente por favor");
             }
@@ -193,7 +193,7 @@ public class JDialog_Registro extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Rellene los datos correctamente por favor");
             System.out.println(e.getMessage());
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_registrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,8 +238,8 @@ public class JDialog_Registro extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_registrar;
     private javax.swing.JComboBox<String> cbo_estrato;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -172,7 +172,7 @@ public class JFrame_Principal extends javax.swing.JFrame {
         if (arreglo.isStarting()) {
             Salvador.set_arreglo(arreglo);
             Salvador.cargar();
-            arreglo.quicksort();
+            arreglo.mergesort();
             arreglo.setStarting(false);
         }
 

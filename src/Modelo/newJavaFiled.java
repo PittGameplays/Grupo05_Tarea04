@@ -46,9 +46,7 @@ public class newJavaFiled {
         
         arregloA = mergesort1(arregloA);
         arregloB = mergesort1(arregloB);
-
-        System.out.println(Arrays.toString(arregloA));
-        System.out.println(Arrays.toString(arregloB));
+        
 
         return mergesort2(arregloA, arregloB);
     }

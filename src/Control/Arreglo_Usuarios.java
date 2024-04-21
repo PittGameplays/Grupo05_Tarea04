@@ -1,7 +1,6 @@
 package Control;
 
 import Modelo.Usuarios;
-import java.awt.Color;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -9,6 +8,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class Arreglo_Usuarios {
+
     private Usuarios[] arreglo = new Usuarios[100];
     private int i = 0;
     boolean starting = true;
@@ -51,7 +51,7 @@ public class Arreglo_Usuarios {
             "Cons. Luz", "Cons. Gas"};
 
         DefaultTableModel modtable = new DefaultTableModel(cabecera, 0);
-        
+
         table.setModel(modtable);
 
         for (int j = 0; j < i; j++) {
@@ -101,7 +101,7 @@ public class Arreglo_Usuarios {
         }
         return false;
     }
-    
+
     public Usuarios buscar_1(int dni) {
         for (int j = 0; j < i; j++) {
             if (arreglo[j].getDni() == dni) {
@@ -110,7 +110,7 @@ public class Arreglo_Usuarios {
         }
         return null;
     }
-    
+
     public int buscar_2(int dni) {
         for (int j = 0; j < i; j++) {
             if (arreglo[j].getDni() == dni) {
@@ -124,7 +124,7 @@ public class Arreglo_Usuarios {
         quicksort2(0, i - 1);
     }
 
-    public void quicksort2(int izq, int der) {
+    private void quicksort2(int izq, int der) {
         int izquierda = izq, derecha = der;
         if (izq >= der) {
             return;
@@ -156,4 +156,84 @@ public class Arreglo_Usuarios {
 
     }
 
+    public void mergesort() {
+        arreglo = mergesort1(arreglo, true);
+    }
+
+    private Usuarios[] mergesort1(Usuarios[] array, boolean start) {
+        if (array.length == 1 || i == 0) {
+            return array;
+        }
+
+        Usuarios[] arregloA;
+        Usuarios[] arregloB;
+
+        if (start) {
+            arregloA = new Usuarios[i / 2];
+            if (array.length % 2 == 0) {
+                arregloB = new Usuarios[i / 2];
+            } else {
+                arregloB = new Usuarios[i / 2 + 1];
+            }
+
+            for (int j = 0; j < i; j++) {
+                if (j < i / 2) {
+                    arregloA[j] = array[j];
+                } else {
+                    arregloB[j - (i / 2)] = array[j];
+                }
+            }
+        } else {
+            arregloA = new Usuarios[array.length / 2];
+            if (array.length % 2 == 0) {
+                arregloB = new Usuarios[array.length / 2];
+            } else {
+                arregloB = new Usuarios[array.length / 2 + 1];
+            }
+            
+            for (int j = 0; j < array.length; j++) {
+            if (j < array.length / 2) {
+                arregloA[j] = array[j];
+            } else {
+                arregloB[j - (array.length / 2)] = array[j];
+            }
+        }
+        }
+
+        arregloA = mergesort1(arregloA, false);
+        arregloB = mergesort1(arregloB, false);
+
+        return mergesort2(arregloA, arregloB);
+    }
+
+    private Usuarios[] mergesort2(Usuarios[] array1, Usuarios[] array2) {
+        int cont1 = 0, cont2 = 0, j = 0;
+        Usuarios[] arregloFinal = new Usuarios[array1.length + array2.length];
+
+        while (cont1 < array1.length && cont2 < array2.length) {
+            if (array1[cont1].getDni() > array2[cont2].getDni()) {
+                arregloFinal[j] = array2[cont2];
+                j++;
+                cont2++;
+            } else {
+                arregloFinal[j] = array1[cont1];
+                j++;
+                cont1++;
+            }
+
+        }
+
+        while (cont1 < array1.length) {
+            arregloFinal[j] = array1[cont1];
+            j++;
+            cont1++;
+        }
+        while (cont2 < array2.length) {
+            arregloFinal[j] = array2[cont2];
+            j++;
+            cont2++;
+        }
+
+        return arregloFinal;
+    }
 }

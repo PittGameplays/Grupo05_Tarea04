@@ -1,6 +1,8 @@
 package Vista;
 
 import Control.Arreglo_Usuarios;
+import Modelo.Usuarios;
+import javax.swing.JOptionPane;
 
 public class JDialog_Registro extends javax.swing.JDialog {
 
@@ -174,7 +176,23 @@ public class JDialog_Registro extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        try {
+            int dni = Integer.parseInt(txt_dni.getText());
+            String contraseña = txt_contraseña.getText();
+            String apellidos = txt_apellidos.getText();
+            String nombres = txt_nombre.getText();
+            int estrato = cbo_estrato.getSelectedIndex() + 1;
+            
+            if (cbo_estrato.getSelectedIndex() != -1) {
+                arreglo.agregar(new Usuarios(dni, contraseña, apellidos, nombres, estrato,
+                        false));
+            } else {
+                JOptionPane.showMessageDialog(null, "Rellene los datos correctamente por favor");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Rellene los datos correctamente por favor");
+            System.out.println(e.getMessage());
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

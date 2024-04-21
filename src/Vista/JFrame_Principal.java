@@ -2,15 +2,20 @@ package Vista;
 
 import Acceso.Salvador;
 import Control.Arreglo_Usuarios;
+import javax.swing.JOptionPane;
 
 public class JFrame_Principal extends javax.swing.JFrame {
 
     Salvador sv = new Salvador();
     Arreglo_Usuarios arreglo = new Arreglo_Usuarios();
-    
+
     public JFrame_Principal() {
         initComponents();
         setLocationRelativeTo(null);
+    }
+
+    public void setArreglo(Arreglo_Usuarios dato) {
+        arreglo = dato;
     }
 
     @SuppressWarnings("unchecked")
@@ -33,6 +38,9 @@ public class JFrame_Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
@@ -42,6 +50,7 @@ public class JFrame_Principal extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
 
         jPanel2.setBackground(new java.awt.Color(102, 204, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user.png"))); // NOI18N
@@ -145,24 +154,29 @@ public class JFrame_Principal extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 380));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 390));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        sv.set_arreglo(arreglo);
-        sv.cargar();
+        if (arreglo.isStarting()) {
+            sv.set_arreglo(arreglo);
+            sv.cargar();
+            arreglo.quicksort();
+            arreglo.setStarting(false);
+        }
+
     }//GEN-LAST:event_formWindowOpened
 
     private void btn_registrarteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrarteActionPerformed
@@ -172,8 +186,30 @@ public class JFrame_Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_registrarteActionPerformed
 
     private void btn_iniciarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iniciarsesionActionPerformed
-        // TODO add your handling code here:
+        try {
+            int dni = Integer.parseInt(txt_dni.getText());
+            String contraseña = txt_contraseña.getText();
+
+            if (arreglo.validar(dni, contraseña)) {
+                if (arreglo.buscar(dni, contraseña).isAdmin()) {
+
+                } else {
+                    JFrame_Usuario jf = new JFrame_Usuario();
+                    jf.setArreglo(arreglo);
+                    jf.temp = arreglo.buscar(dni, contraseña);
+                    jf.setVisible(true);
+                    this.dispose();
+                }
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Credenciales Invalidas");
+        }
     }//GEN-LAST:event_btn_iniciarsesionActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        sv.guardar();
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

@@ -11,18 +11,24 @@ public class Arreglo_Usuarios {
 
     private Usuarios[] arreglo = new Usuarios[100];
     private int i = 0;
-    boolean starting;
+    boolean starting = true;
+
+    public void setStarting(boolean starting) {
+        this.starting = starting;
+    }
+
+    public boolean isStarting() {
+        return starting;
+    }
 
     public void agregar(Usuarios dato) {
         if (i <= 100) {
             arreglo[i] = dato;
             i++;
-            if (starting) {
+            if (!starting) {
                 JOptionPane.showMessageDialog(null, "Registro Exitoso");
-            } else {
-                quicksort();
             }
-            
+
         } else {
             JOptionPane.showMessageDialog(null, "Cantidad de usuarios excedida, proceso fallido");
         }
@@ -59,6 +65,13 @@ public class Arreglo_Usuarios {
     }
 
     public boolean validar(int dni, String contraseña) {
+        if (buscar(dni, contraseña) != null) {
+            JOptionPane.showMessageDialog(null, "Bienvenido " + buscar(dni, contraseña).getNombre() + " "
+                    + buscar(dni, contraseña).getApellido());
+        } else {
+            JOptionPane.showMessageDialog(null, "Credenciales Invalidas");
+        }
+
         return buscar(dni, contraseña) != null;
     }
 
@@ -72,7 +85,7 @@ public class Arreglo_Usuarios {
     }
 
     public void quicksort() {
-        quicksort2(0, arreglo.length - 1);
+        quicksort2(0, i - 1);
     }
 
     public void quicksort2(int izq, int der) {

@@ -22,6 +22,14 @@ public class Arreglo_Usuarios {
 
     }
 
+    public int getI() {
+        return i;
+    }
+
+    public Usuarios getUsuario(int index) {
+        return arreglo[index];
+    }
+
     public void listar(JTable table) {
         Object[] cabecera = {"DNI", "Apellidos", "Nombres", "Estrato Social", "Consumo de Agua",
             "Consumo de Luz", "Consumo de Gas"};
@@ -43,33 +51,37 @@ public class Arreglo_Usuarios {
         }
     }
 
-    public void quicksort(){
-        quicksort2(0, arreglo.length-1);
+    public void quicksort() {
+        quicksort2(0, arreglo.length - 1);
     }
-    
+
     public void quicksort2(int izq, int der) {
         int izquierda = izq, derecha = der;
         if (izq >= der) {
             return;
         }
-        
+
         if (izq != der) {
             int pivote = izq;
             Usuarios aux;
-            while(izq!= der){
-                while(arreglo[der].getDni() >= arreglo[pivote].getDni() && izq < der){der--;}
-                while(arreglo[izq].getDni() < arreglo[pivote].getDni() && izq < der){izq++;}
-                
-                if (der != izq){
+            while (izq != der) {
+                while (arreglo[der].getDni() >= arreglo[pivote].getDni() && izq < der) {
+                    der--;
+                }
+                while (arreglo[izq].getDni() < arreglo[pivote].getDni() && izq < der) {
+                    izq++;
+                }
+
+                if (der != izq) {
                     aux = arreglo[der];
                     arreglo[der] = arreglo[izq];
                     arreglo[izq] = aux;
                 }
             }
-            
-            if(izq == der){
-                quicksort2(izquierda, izq-1);
-                quicksort2(izq+1, derecha);
+
+            if (izq == der) {
+                quicksort2(izquierda, izq - 1);
+                quicksort2(izq + 1, derecha);
             }
         }
 

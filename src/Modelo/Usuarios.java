@@ -83,5 +83,8 @@ public class Usuarios {
         
         return new Object[]{dni, apellido, nombre, xd, consumo_agua, consumo_luz, consumo_gas};
     }
-
+    
+    public String getSalvado(){
+        return dni + "%" + contraseña + "%" + apellido + "%" + nombre + "%" + estrato + "%" + admin;
+    }
 }

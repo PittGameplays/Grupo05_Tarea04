@@ -1,7 +1,13 @@
 package Vista;
 
+import Acceso.Salvador;
+import Control.Arreglo_Usuarios;
+
 public class JFrame_Principal extends javax.swing.JFrame {
 
+    Salvador sv = new Salvador();
+    Arreglo_Usuarios arreglo = new Arreglo_Usuarios();
+    
     public JFrame_Principal() {
         initComponents();
         setLocationRelativeTo(null);
@@ -64,6 +70,11 @@ public class JFrame_Principal extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Registrate aqui");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
@@ -73,6 +84,11 @@ public class JFrame_Principal extends javax.swing.JFrame {
         jToggleButton1.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
         jToggleButton1.setText("Iniciar Sesión");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -143,8 +159,17 @@ public class JFrame_Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        
+        sv.set_arreglo(arreglo);
+        sv.cargar();
     }//GEN-LAST:event_formWindowOpened
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

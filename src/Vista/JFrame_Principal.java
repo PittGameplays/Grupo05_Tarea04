@@ -25,9 +25,9 @@ public class JFrame_Principal extends javax.swing.JFrame {
         txt_dni = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txt_contraseña = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        btn_registrarte = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        btn_iniciarsesion = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -66,13 +66,13 @@ public class JFrame_Principal extends javax.swing.JFrame {
         txt_contraseña.setForeground(new java.awt.Color(51, 51, 51));
         txt_contraseña.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jButton1.setBackground(new java.awt.Color(102, 153, 255));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Registrate aqui");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_registrarte.setBackground(new java.awt.Color(102, 153, 255));
+        btn_registrarte.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        btn_registrarte.setForeground(new java.awt.Color(255, 255, 255));
+        btn_registrarte.setText("Registrate aqui");
+        btn_registrarte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_registrarteActionPerformed(evt);
             }
         });
 
@@ -80,13 +80,13 @@ public class JFrame_Principal extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("¿Aun no tienes una cuenta?");
 
-        jToggleButton1.setBackground(new java.awt.Color(102, 153, 255));
-        jToggleButton1.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton1.setText("Iniciar Sesión");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_iniciarsesion.setBackground(new java.awt.Color(102, 153, 255));
+        btn_iniciarsesion.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        btn_iniciarsesion.setForeground(new java.awt.Color(255, 255, 255));
+        btn_iniciarsesion.setText("Iniciar Sesion");
+        btn_iniciarsesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                btn_iniciarsesionActionPerformed(evt);
             }
         });
 
@@ -101,17 +101,19 @@ public class JFrame_Principal extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txt_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 6, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txt_dni))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_registrarte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(txt_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(4, 4, 4))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btn_iniciarsesion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txt_contraseña))
                         .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
@@ -127,13 +129,13 @@ public class JFrame_Principal extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jToggleButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_iniciarsesion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(btn_registrarte)
                     .addComponent(jLabel5))
-                .addGap(37, 37, 37))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -143,13 +145,13 @@ public class JFrame_Principal extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -163,13 +165,15 @@ public class JFrame_Principal extends javax.swing.JFrame {
         sv.cargar();
     }//GEN-LAST:event_formWindowOpened
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    private void btn_registrarteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrarteActionPerformed
+        JDialog_Registro jf = new JDialog_Registro(this, true);
+        jf.setArreglo(arreglo);
+        jf.setVisible(true);
+    }//GEN-LAST:event_btn_registrarteActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_iniciarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iniciarsesionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_iniciarsesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,7 +211,8 @@ public class JFrame_Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btn_iniciarsesion;
+    private javax.swing.JButton btn_registrarte;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -215,7 +220,6 @@ public class JFrame_Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JPasswordField txt_contraseña;
     private javax.swing.JTextField txt_dni;
     // End of variables declaration//GEN-END:variables

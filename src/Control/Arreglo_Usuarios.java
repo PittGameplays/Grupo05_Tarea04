@@ -9,7 +9,6 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class Arreglo_Usuarios {
-    int mmgvo;
     private Usuarios[] arreglo = new Usuarios[100];
     private int i = 0;
     boolean starting = true;

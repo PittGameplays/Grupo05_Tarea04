@@ -11,6 +11,9 @@ public class JFrame_Principal extends javax.swing.JFrame {
     public JFrame_Principal() {
         initComponents();
         setLocationRelativeTo(null);
+        System.out.println("Para ingresar al sistema como administrador ;3");
+        System.out.println("DNI: 1234567890");
+        System.out.println("Contraseña: 1234567890");
     }
 
     public void setArreglo(Arreglo_Usuarios dato) {

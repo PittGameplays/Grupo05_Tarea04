@@ -166,7 +166,7 @@ public class Arreglo_Usuarios {
     }
 
     private Usuarios[] mergesort1(Usuarios[] array, boolean start) {
-        if (array.length == 1 || i == 0) {
+        if (array.length == 1 || i == 0 || i == 1) {
             return array;
         }
 

@@ -175,22 +175,16 @@ public class Arreglo_Usuarios {
 
         if (start) {
             arregloA = new Usuarios[i / 2];
-            if (array.length % 2 == 0) {
-                arregloB = new Usuarios[i / 2];
-            } else {
-                arregloB = new Usuarios[i / 2 + 1];
+            arregloB = new Usuarios[i - arregloA.length];
+            
+            for (int j = 0; j < arregloA.length; j++) {
+                arregloA[j] = array[j];
             }
-
-            for (int j = 0; j < i; j++) {
-                if (j < (i / 2)) {
-                    arregloA[j] = array[j];
-                } else {
-                    arregloB[j - (i / 2)] = array[j];
-                    if(arregloB.length == 1){
-                        break;
-                    }
-                }
+            
+            for (int j = arregloA.length; j < i; j++) {
+                arregloB[j - arregloA.length] = array[j];
             }
+            
         } else {
             arregloA = new Usuarios[array.length / 2];
             if (array.length % 2 == 0) {

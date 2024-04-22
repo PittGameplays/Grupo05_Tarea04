@@ -157,7 +157,7 @@ public class Arreglo_Usuarios {
     }
 
     public void mergesort() {
-        Usuarios[] temp = mergesort1(arreglo, starting);
+        Usuarios[] temp = mergesort1(arreglo, true);
         
         for (int j = 0; j < temp.length; j++) {
             arreglo[j] = temp[j]; 
@@ -182,10 +182,13 @@ public class Arreglo_Usuarios {
             }
 
             for (int j = 0; j < i; j++) {
-                if (j < i / 2) {
+                if (j < (i / 2)) {
                     arregloA[j] = array[j];
                 } else {
                     arregloB[j - (i / 2)] = array[j];
+                    if(arregloB.length == 1){
+                        break;
+                    }
                 }
             }
         } else {

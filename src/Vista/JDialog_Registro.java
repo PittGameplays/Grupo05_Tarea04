@@ -185,6 +185,7 @@ public class JDialog_Registro extends javax.swing.JDialog {
             if (cbo_estrato.getSelectedIndex() != -1) {
                 arreglo.agregar(new Usuarios(dni, contraseña, apellidos, nombres, estrato,
                         false));
+                arreglo.mergesort();
                 this.dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Rellene los datos correctamente por favor");
